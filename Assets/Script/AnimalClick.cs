@@ -1,26 +1,25 @@
 using UnityEngine;
 
 public class AnimalClick : MonoBehaviour
+
+public AudioClip sonDeLAnimal;
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     private AudioSource audioSource;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-    }
-    void OnMouseDown()
-    {
-        
-        if (audioSource != null && audioSource.clip != null)
-        audioSource.Play();
         
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (sonDeLAnimal != null && !audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(sonDeLAnimal);
+        }
         
     }
 }
-
-
