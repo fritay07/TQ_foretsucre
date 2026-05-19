@@ -7,4 +7,13 @@ public class ChangementScene : MonoBehaviour
     {
         SceneManager.LoadScene("Niveau1");
     }
+    public void ChargerProchain()
+    {
+        SceneManager.LoadScene("Niveau2");
+    }
+    public void ChargerAcceuil()
+    {
+        SceneManager.LoadScene("Acceuil");
+    }
+
 }
