@@ -21,6 +21,7 @@ public class DragAndDrop : MonoBehaviour
         Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(new Vector3(mouseWindowPos.x, mouseWindowPos.y, Mathf.Abs(mainCamera.transform.position.z)));
         Vector2 mousePos2D = new Vector2(mouseWorldPos.x, mouseWorldPos.y);
 
+        // Clic enfoncé, pressed
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             if (myCollider == Physics2D.OverlapPoint(mousePos2D))
@@ -34,6 +35,7 @@ public class DragAndDrop : MonoBehaviour
             }
         }
 
+        // Clic relâché, released
         if (Mouse.current.leftButton.wasReleasedThisFrame && isDragging)
         {
             isDragging = false;
@@ -42,7 +44,7 @@ public class DragAndDrop : MonoBehaviour
                 rb.gravityScale = 1;
             }
         }
-
+        // Déplacement
         if (isDragging)
         {
             transform.position = new Vector3(mouseWorldPos.x, mouseWorldPos.y, 0f);
