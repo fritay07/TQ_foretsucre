@@ -1,16 +1,13 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Drag : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+public class DragAndDrop : MonoBehaviour, IPointerDownHandler {
+
+    public void OnPointerDown(PointerEventData eventData)
     {
-        
+        Debug.Log("OnPointerDown");
+        // throw new System.NotImplementedException();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
