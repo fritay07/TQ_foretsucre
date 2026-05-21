@@ -7,12 +7,14 @@ public class DragAndDrop : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D myCollider;
     private Camera mainCamera;
+    private Animator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<Collider2D>();
         mainCamera = Camera.main;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -32,6 +34,10 @@ public class DragAndDrop : MonoBehaviour
                     rb.gravityScale = 0;
                     rb.linearVelocity = Vector2.zero;
                 }
+                if (animator != null)
+                {
+                    animator.SetBool("estAttrape", true);
+                }
             }
         }
 
@@ -43,7 +49,12 @@ public class DragAndDrop : MonoBehaviour
             {
                 rb.gravityScale = 1;
             }
+            if (animator != null)
+            {
+                animator.SetBool("estAttrape", false);
+            }
         }
+        
         // Déplacement
         if (isDragging)
         {
